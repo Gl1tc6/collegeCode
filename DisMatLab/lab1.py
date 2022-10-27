@@ -8,20 +8,12 @@ def lab_main():
         n = int(input("Unesite nenegativan cijeli broj: "))
     b = []
     c = []
-
     for i in range(2):
         for j in range(3):
             if i == 0:
                 b.append(int(input("Unesite vrijednost broja b_" + str(j) + ": ")))
             else:
                 c.append(int(input("Unesite vrijednost broja c_" + str(j) + ": ")))
-    # Optimizitano
-    '''
-    lam1, lam2 = symbols('lam1 lam2')
-    prva_jed = Eq(b[2] - b[1] * lam1 - b[0] * lam2, 0)
-    druga_jed = Eq(c[2] - c[1] * lam1 - c[0] * lam2, 0)
-    lam = solve((prva_jed, druga_jed), (lam1, lam2))'''
-
     # Sporije - moj direktan kod
     if b[1] * c[0] - b[0] * c[1] == 0:
         print("Sustav je neodređen")
@@ -31,9 +23,6 @@ def lab_main():
     lam1 = (b[2] - lam2 * b[0]) / b[1]
 
     print(str(lam1) + "  |  " + str(lam2))
-
-
-   # lam1 = lam2 = -1
     nul_t = np.roots([1, -1*lam1, -1*lam2])
     print(nul_t)
 
